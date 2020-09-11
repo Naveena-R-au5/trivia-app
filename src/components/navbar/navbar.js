@@ -31,10 +31,10 @@ const ButtonAppBar=()=> {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton> */}
-          <Typography edge="start" variant="h6" className={classes.title}>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            Trivia app
+          </IconButton>
+          <Typography  variant="h6" className={classes.title}>
             <span   className={style.home} onClick={()=>{localStorage.clear()
                          dispatch({type:"CLEAR"})
                          history.push('/')}}>Home</span>
