@@ -22,9 +22,9 @@ const Home =()=>{
     const {state,dispatch} = useContext(UserContext)
     const {userid} = useState(state);
     const new_obj={};
-    console.log('ans',checkedItems)
+    // console.log('ans',checkedItems)
 
-    
+    //code for checkbox
     const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
         console.log("Checkbox: ", name, checked);
       
@@ -44,7 +44,7 @@ const Home =()=>{
           
           console.log("checkedItems: ", checkedItems);
         };
-      
+        //checkbox values
         const checkboxes = [
           {
             name: "White",
@@ -89,7 +89,7 @@ const Home =()=>{
     const handleChange = (event) => {
         setAns(event.target.value);
       };
-   
+    //carousel code
     const Carousel = () => {
         let reactSwipeEl;
         return(
@@ -103,6 +103,7 @@ const Home =()=>{
             className={style.box}
           >
                <div><CheckboxExample /></div>
+               {/* Radio code */}
             <div className='cricket'>
             <FormControl component="fieldset1">
                <h3>2. Who is the Best Cricketer in The work</h3>
@@ -142,11 +143,12 @@ const Home =()=>{
             const user = JSON.parse(localStorage.getItem("user"))
             setUsers(user[0])
           },[])
-          console.log('user',userdata)
+          // console.log('user',userdata)
           
         
     const Submits=(e)=>{
       e.preventDefault()
+      // Posting data to firebase 
        const ref = firebase
         .firestore()
         .collection('user')

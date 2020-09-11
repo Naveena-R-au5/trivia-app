@@ -2,22 +2,19 @@ export const initialState = null
 
 
 export const reducer = (state,action)=>{
+    //for user data
     if(action.type === "USER"){
         return action.payload
     }
+
     if(action.type === "Q1"){
         return action.payload
     }
+
+    //for clear localdata
     if(action.type === "CLEAR"){
         return null
     }
-    if(action.type === "UPDATE_EXPENSE"){
-        return {
-            ...state,
-            amount:action.payload.amount,
-            description:action.payload.description,
-            date:action.payload.date
-        }
-    }
+    
     return state
 }

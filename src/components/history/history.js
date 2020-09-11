@@ -9,12 +9,12 @@ import en from 'javascript-time-ago/locale/en'
 import style from './h.module.css'
 import {UserContext} from '../../App'
 import Navbar from '../navbar/navbar'
-
+//for time converting
 JavascriptTimeAgo.addLocale(en)
 const History =()=>{
   const {state,dispatch} = useContext(UserContext)
     const [data,setData] = useState([])
-    
+         //Get details from firebase
         firebase
         .firestore()
         .collection('user')
@@ -25,14 +25,14 @@ const History =()=>{
             ...doc.data()
         }))
           setData(userid)
-         console.log(userid)
+        //  console.log(userid)
         })
        
 
     return (
       <>
       <Navbar/>
-     
+         {/* code for list of details */}
         <div className={style.main}>
         <h2 >List of all Contestents</h2>
            {data?data.map((d)=>{
@@ -43,7 +43,8 @@ const History =()=>{
                   <h3 className={style.box} style={{color:'blue',fontWeight:'bold'}}>Name :&nbsp; {d.name?d.name:"NA"}</h3>
                   <h4 className={style.box}>Attemted :&nbsp;{d.datetime?<ReactTimeAgo style={{color:"grey"}} date={d.datetime?d.datetime.toDate().toISOString():'NA'}/>:""}<br/></h4>
                   <h4 className={style.box}> Question 1:&nbsp;&nbsp;What are the colors in the Indian Flag?</h4>
-                  <h4 className={style.box}> Answer :&nbsp;  
+                  <h4 className={style.box}> Answer :&nbsp; 
+                   {/*mapping data from array  */}
         {d.checkedItems?Object.keys(d.checkedItems).map((key, i) => {return(
           <span key={i}>
             <span> {key?key:'NA'},</span>

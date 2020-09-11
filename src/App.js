@@ -13,7 +13,7 @@ const Routing = ()=>{
   const history = useHistory()
   const {state,dispatch} = useContext(UserContext)
   const [User,setUsers] = useState([])
-  console.log("st",User)
+  // console.log("st",User)
  
   
   useEffect(()=>{
@@ -46,6 +46,7 @@ const Routing = ()=>{
 
 function App() {
   const [state,dispatch] = useReducer(reducer,initialState)
+  // code for splash
   const [timePassed, setTimepassed] = useState(false)
   useEffect(() => {
     setTimeout(() => {

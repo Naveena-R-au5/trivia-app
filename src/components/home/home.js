@@ -14,6 +14,7 @@ const Home =()=>{
     const [id,setId] = useState()
     const Submit=(e)=>{
       e.preventDefault()
+      //Posting data to firebase
         firebase
         .firestore()
         .collection('user')
@@ -21,7 +22,7 @@ const Home =()=>{
           name,
         })
        
-        
+        //Getting data from firebase with name 
         firebase
         .firestore()
         .collection('user')
@@ -32,6 +33,7 @@ const Home =()=>{
             ...doc.data()
         }))
           setId(userid)
+          //storing use details in local storage
           localStorage.setItem("user",JSON.stringify(userid))
           dispatch({type:"USER",payload:"userid"})
           window.location.reload();
@@ -39,6 +41,7 @@ const Home =()=>{
 
     }
    console.log('id',)
+   //checking wheather name is avaliable or not
    const disabled = !name.length;
     return (
       <>
@@ -46,15 +49,14 @@ const Home =()=>{
         <div className={style.main}>
           <Card className={style.root}>
              <h3>What is your name?</h3>
-            
+            {/*---- name form---- */}
             <form  className={style.form} noValidate autoComplete="off">
                <Input type='text' value={name} className={style.imput} placeholder='here...' onChange = {(e)=> setName(e.target.value) }/>
                <Button style={{width:'30%',marginLeft:'30%',marginTop:'30px'}} variant="contained" disabled={disabled}
                color="primary" onClick={(e)=>Submit(e)} >
                    <Link style={{textDecoration:'none',color:'white'}} to='/quiz'  >Next</Link>
               </Button>
-               
-    </form>
+               </form>
            
           </Card>
         </div>
